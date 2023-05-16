@@ -40,7 +40,7 @@ class MovieRemoteDataSourceImpl implements MovieRemoteDataSource {
       {
         'title': title,
         'description': description,
-        'poster': MultipartFile.fromString(poster),
+        'poster': await MultipartFile.fromFile(poster),
       },
     );
     final resp = await ns.post('/movie', data: formData);
